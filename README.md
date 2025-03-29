@@ -22,7 +22,7 @@ Ghibli Image Scraper uses Google's Gemini AI to analyze images on X.com in real-
 
    ```bash
    git clone https://github.com/saarthakkj/ghibli-image-scraper.git
-   ```bash
+   ```
 
 2. Open Chrome and navigate to `chrome://extensions/`
 
