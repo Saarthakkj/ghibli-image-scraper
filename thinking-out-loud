@@ -1,0 +1,7 @@
+project-name : ghibli-image-scraper
+what it does? 
+	- a chrome extension that actiavtes on x.com
+	- realtime scrapes all images
+	- call an llm-api (a meta model) with image and ask if the image is "studio ghibli style"
+	- llm-api should return a true/false
+	- if true, download the image

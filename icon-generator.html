@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ghibli Icon Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      margin: 10px;
+    }
+    .controls {
+      margin: 20px 0;
+    }
+    button {
+      padding: 10px 15px;
+      background: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ghibli Icon Generator</h1>
+  
+  <div>
+    <canvas id="icon16" width="16" height="16"></canvas>
+    <canvas id="icon48" width="48" height="48"></canvas>
+    <canvas id="icon128" width="128" height="128"></canvas>
+  </div>
+  
+  <div class="controls">
+    <button id="generate">Generate Icons</button>
+    <button id="download16">Download 16px</button>
+    <button id="download48">Download 48px</button>
+    <button id="download128">Download 128px</button>
+  </div>
+  
+  <script>
+    // Get canvas elements
+    const canvas16 = document.getElementById('icon16');
+    const canvas48 = document.getElementById('icon48');
+    const canvas128 = document.getElementById('icon128');
+    
+    // Get contexts
+    const ctx16 = canvas16.getContext('2d');
+    const ctx48 = canvas48.getContext('2d');
+    const ctx128 = canvas128.getContext('2d');
+    
+    // Generate a Ghibli-inspired icon
+    function generateIcon(ctx, size) {
+      // Clear canvas
+      ctx.clearRect(0, 0, size, size);
+      
+      // Background gradient (sky blue to light blue - Ghibli-like sky)
+      const gradient = ctx.createLinearGradient(0, 0, 0, size);
+      gradient.addColorStop(0, '#87CEEB');
+      gradient.addColorStop(1, '#E0F7FA');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, size, size);
+      
+      // Draw a simple Totoro-inspired silhouette
+      ctx.fillStyle = '#5D4037';
+      
+      // Body (oval)
+      ctx.beginPath();
+      ctx.ellipse(size/2, size/2 + size*0.1, size*0.4, size*0.35, 0, 0, Math.PI*2);
+      ctx.fill();
+      
+      // Ears (triangles)
+      ctx.beginPath();
+      ctx.moveTo(size/2 - size*0.25, size/2 - size*0.1);
+      ctx.lineTo(size/2 - size*0.15, size/2 - size*0.3);
+      ctx.lineTo(size/2 - size*0.05, size/2 - size*0.1);
+      ctx.fill();
+      
+      ctx.beginPath();
+      ctx.moveTo(size/2 + size*0.25, size/2 - size*0.1);
+      ctx.lineTo(size/2 + size*0.15, size/2 - size*0.3);
+      ctx.lineTo(size/2 + size*0.05, size/2 - size*0.1);
+      ctx.fill();
+      
+      // Eyes
+      ctx.fillStyle = 'white';
+      ctx.beginPath();
+      ctx.arc(size/2 - size*0.15, size/2 - size*0.05, size*0.08, 0, Math.PI*2);
+      ctx.arc(size/2 + size*0.15, size/2 - size*0.05, size*0.08, 0, Math.PI*2);
+      ctx.fill();
+      
+      ctx.fillStyle = 'black';
+      ctx.beginPath();
+      ctx.arc(size/2 - size*0.15, size/2 - size*0.05, size*0.04, 0, Math.PI*2);
+      ctx.arc(size/2 + size*0.15, size/2 - size*0.05, size*0.04, 0, Math.PI*2);
+      ctx.fill();
+    }
+    
+    // Generate all icons
+    function generateAllIcons() {
+      generateIcon(ctx16, 16);
+      generateIcon(ctx48, 48);
+      generateIcon(ctx128, 128);
+    }
+    
+    // Download function
+    function downloadCanvas(canvas, filename) {
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+    
+    // Event listeners
+    document.getElementById('generate').addEventListener('click', generateAllIcons);
+    document.getElementById('download16').addEventListener('click', () => downloadCanvas(canvas16, 'icon16.png'));
+    document.getElementById('download48').addEventListener('click', () => downloadCanvas(canvas48, 'icon48.png'));
+    document.getElementById('download128').addEventListener('click', () => downloadCanvas(canvas128, 'icon128.png'));
+    
+    // Generate icons on load
+    generateAllIcons();
+  </script>
+</body>
+</html>

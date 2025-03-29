@@ -1,0 +1,51 @@
+
+## Implementation Steps
+
+### 1. Setup Chrome Extension Structure
+- Create the basic extension structure with manifest.json
+- Configure permissions for X.com domain access
+- Set up background and content scripts
+- Design a simple popup interface
+
+### 2. Image Scraping Implementation
+- Develop content script to identify and extract images from X.com
+- Create observers to detect new images as they appear during scrolling
+- Implement filtering to avoid processing duplicate images
+- Add functionality to extract image URLs and metadata
+
+### 3. LLM API Integration
+- Set up connection to a Meta model API (like Llama 2 or similar)
+- Create functions to send images to the API for analysis
+- Implement prompt engineering to accurately identify Studio Ghibli style
+- Handle API responses and error conditions
+
+### 4. Image Processing and Storage
+- Develop logic to process API responses (true/false for Ghibli style)
+- Create image download functionality for positively identified images
+- Implement local storage management for downloaded images
+- Add options for customizing save locations and file naming
+
+### 5. User Interface and Settings
+- Design an intuitive popup interface
+- Add toggle for enabling/disabling the extension
+- Implement statistics tracking (images processed, downloaded)
+- Create settings for API key management and download preferences
+
+### 6. Testing and Optimization
+- Test on various X.com layouts and scenarios
+- Optimize image detection for performance
+
+### 7. Packaging and Distribution
+- Package the extension for Chrome Web Store
+- Implement update mechanism
+
+## Technical Considerations
+- Use MutationObserver to detect dynamically loaded images
+- Consider using chrome local storage for caching processed images
+- Ensure proper error handling for network issues
+- Implement privacy-focused design (only process images, no text content)
+
+## API Integration Details
+- Use a vision-capable LLM model (e.g., GPT-4 Vision, Llama 2 with vision capabilities)
+- Craft a specific sytem prompt like: "Is this image in Studio Ghibli art style? Answer only with true or false."
+- Consider implementing a confidence threshold for more accurate results
