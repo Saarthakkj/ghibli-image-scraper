@@ -1,8 +1,13 @@
 # Ghibli Image Scraper
 
-A Chrome extension that automatically identifies and downloads images in Studio Ghibli art style from X.com (formerly Twitter).
+A Chrome extension that automatically identifies and downloads images in Studio Ghibli art style from X.com .
 
-[![Ghibli Image Scraper Demo](https://img.youtube.com/vi/wWihi6qoh2E/0.jpg)](https://www.youtube.com/watch?v=wWihi6qoh2E)
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=wWihi6qoh2E">
+    <img src="https://img.youtube.com/vi/wWihi6qoh2E/maxresdefault.jpg" alt="Ghibli Image Scraper Demo" width="600">
+  </a>
+  <p><em>Click the image to watch the demo video</em></p>
+</div>
 
 ## Overview
 
